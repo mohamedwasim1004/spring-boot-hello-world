@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: wasim
+  name: helloworldjava
+spec:
+  replicas: 2
+  selector:
+   matchLabels:
+     app: helloworld1
+  template:
+    metadata:
+      labels:
+        app: helloworld1
+    spec:
+      containers:
+      - name: hellodocker
+        image: icsbfdacr01.azurecr.io/springbootwasim:vbid
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: icsbfdev
+      nodeSelector:
+        env: applicationdev
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: wasim
+  name: java-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+    protocol: TCP
+    name: http
+  selector:
+    app: helloworld1
