@@ -5,4 +5,4 @@ metadata:
    name: springboot-dev
 data:
    MY_APP: "SpringBoot"
-   MY_PORT: "8081"
+   MY_PORT: 8081
