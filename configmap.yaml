@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata: 
    namespace: wasim
-   name: configmap-dev
+   name: springboot_dev
 data:
    MY_APP: "SpringBoot"
    MY_PORT: "8081"
