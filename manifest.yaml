@@ -18,7 +18,10 @@ spec:
         image: icsbfdacr01.azurecr.io/springbootwasim:vbid
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
+        - containerPort: 8081
+        envFrom:
+        - configMapRef:
+            name: 
       imagePullSecrets:
       - name: icsbfdev
       nodeSelector:
